@@ -41,19 +41,19 @@ class Graph:
         return result
 
 # example usage 
-graph = Graph()
+# graph = Graph()
 # create vertices
-action = Vertex("Action")
-game_a = Vertex("Game A", 4.5)
-game_b = Vertex("Game B", 4.7)
+# action = Vertex("Action")
+# game_a = Vertex("Game A", 4.5)
+# game_b = Vertex("Game B", 4.7)
 # add vertices to graph
-graph.add_vertex(action)
-graph.add_vertex(game_a)
-graph.add_vertex(game_b)
+# graph.add_vertex(action)
+# graph.add_vertex(game_a)
+# graph.add_vertex(game_b)
 # add edges
-graph.add_edge(action, game_a)
-graph.add_edge(action, game_b)
+# graph.add_edge(action, game_a)
+# graph.add_edge(action, game_b)
 # perform BFS
-games_in_action = graph.bfs("Action")
-for game in games_in_action:
-    print(game.value, game.rating)
+# games_in_action = graph.bfs("Action")
+# for game in games_in_action:
+# print(game.value, game.rating)
