@@ -12,3 +12,7 @@ This will be an interactive terminal app, similar to the previous, but will use 
 Currently I have the vertex/graph/bfs methods defined, with some examples to test the features. 
 
 I decided to separate the portfolio projects rather than dump them all into one repo to make it easier to parse files.
+
+I now have a base line for all files except the print statements. Once I get a template for those I will flesh everything out.
+
+I will likely incorporate logging as I did in the previous project as well. 
