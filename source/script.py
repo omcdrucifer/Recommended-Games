@@ -3,7 +3,7 @@ from data import load_data
 from graph import Graph, Vertex # at this stage I don't know if script.py needs graph interaction itself
 
 def get_user_preferences():
-    genre = input("Enter a genre to get recommendations: ")
+    genre = input("Enter a genre to get recommendations: ").strip().title()
     return genre
 
 def recommend_games(graph, genre):
@@ -16,9 +16,9 @@ def main():
     graph = load_data()
     genre = get_user_preferences()
     recommendations = recommend_games(graph, genre)
-    print(f"Top games in {genre}:")
+    print(f"\nTop games in {genre}:\n")
     for game in recommendations:
-        print(f"{game.value} with rating {game.rating}")
+        print(f"\n{game.value} with rating {game.rating}\n")
 
 if __name__ == "__main__":
     main()
