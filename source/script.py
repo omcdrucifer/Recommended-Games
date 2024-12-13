@@ -9,7 +9,7 @@ def get_user_preferences():
 def recommend_games(graph, genre):
     games = graph.bfs(genre)
     game_vertices = [game for game in games if game.rating is not None]
-    sorted_games = sorted(game_vertices, key=lamda x: x.rating, reverse=True)
+    sorted_games = sorted(game_vertices, key=lambda x: x.rating, reverse=True)
     return sorted_games
 
 def main():
