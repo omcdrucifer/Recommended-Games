@@ -7,6 +7,7 @@ print(welcome())
 print(line_break())
 print(greeting())
 print(double_line_break())
+
 def get_user_preferences():
     genre = input("  Enter a genre to get recommendations: ").strip().title()
     return genre
@@ -24,8 +25,10 @@ def main():
         recommendations = recommend_games(graph, genre)
         print(line_break())
         print(f"  Top games in {genre}:\n")
+        n = 1
         for game in recommendations:
-            print(f"\n  {game.value} with rating {game.rating}\n")
+            print(f"\n{n}. {game.value} with rating {game.rating}\n")
+            n += 1
         print(line_break())
         choose = input("  Would you like to look for more recommendations? <yes/no>: ").strip().lower()
         if choose != "yes":
