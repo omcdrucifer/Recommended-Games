@@ -11,21 +11,31 @@ def load_data():
             } 
 
     blurb = {
-            "Space Marine 2": "The sequel of the legendary license space marine,\nby the creators of the best-seller world war z (15m players)",
-            "Call of Duty Black Ops 6": "Black Ops 6 features fast, responsive movement on PC,\nallowing players to swiftly navigate the map in search of\ntheir next target and objective.",
-            "Street Fighter 6": "Street Fighter 6 offers a highly evolved combat\nsystem with three control types - Classic, Modern and Dynamic",
-            "Grand Theft Auto V": "Experience entertainment blockbusters,\nGrand Theft Auto V and GTA Online.",
-            "Cyberpunk2077": "Magnificent, confident and loaded with content\nthat other games do not offer.",
-            "Elden Ring": "2022 Game of the Year",
-            "Final Fantasy XVI": "An epic dark fantasy world where the fate of the\nland is decided by the mighty Eikons and the Dominants who wield them.",
-            "Remnant II": "Remnant 2 iterates on the original to phenomenal effect.",
-            "Destiny 2": "Destiny 2 takes place in a fictional universe where you will\nassume the role of a Guardian, a protector of Earth's last city.",
-            "Elder Scrolls Online": "Go anywhere, do anything, and play your way\nin The Elder Scrolls Online, the award-winning online\nRPG set in the Elder Scrolls universe.",
-            "Balatro": "Balatro is one of the most addictive games of the past few years",
-            "Cities Skylines II": "Cities: Skylines II is still a long way from perfect.",
-            "Stardew Valley": "Stardew Valley is a highly praised farming simulation game",
-            "Marvel Snap": "Marvel Snap is a fast-paced mobile collectible card\ngame that features strategic gameplay",
-            "Sims 4": "Regardless of environmental aesthetic, the series has\nalways been functionally and fundamentally Californian."
+            "Space Marine 2": "\n The sequel of the legendary license space marine,\n by the creators of the best-seller world war z (15m players)\n",
+            "Call of Duty Black Ops 6": "\n Black Ops 6 features fast, responsive movement on PC,\n allowing players to swiftly navigate the map in search of\n their next target and objective.\n",
+            "Street Fighter 6": "\n Street Fighter 6 offers a highly evolved combat\n system with three control types - Classic, Modern and Dynamic\n",
+            "Grand Theft Auto V": "\n Experience entertainment blockbusters,\n Grand Theft Auto V and GTA Online.\n",
+            "Cyberpunk2077": "\n Magnificent, confident and loaded with content\n that other games do not offer.\n",
+            "Elden Ring": "\n 2022 Game of the Year\n",
+            "Final Fantasy XVI": "\n An epic dark fantasy world where the fate of the\n land is decided by the mighty Eikons and the Dominants who wield them.\n",
+            "Remnant II": "\n Remnant 2 iterates on the original to phenomenal effect.\n",
+            "Destiny 2": "\n Destiny 2 takes place in a fictional universe where you will\n assume the role of a Guardian, a protector of Earth's last city.\n",
+            "Elder Scrolls Online": "\n Go anywhere, do anything, and play your way\n in The Elder Scrolls Online, the award-winning online\n RPG set in the Elder Scrolls universe.\n",
+            "Balatro": "\n Balatro is one of the most addictive games of the past few years\n",
+            "Cities Skylines II": "\n Cities: Skylines II is still a long way from perfect.\n",
+            "Stardew Valley": "\n Stardew Valley is a highly praised farming simulation game\n",
+            "Marvel Snap": "\n Marvel Snap is a fast-paced mobile collectible card\n game that features strategic gameplay\n",
+            "Sims 4": "\n Regardless of environmental aesthetic, the series has\n always been functionally and fundamentally Californian.\n",
+            "EA FC 25": "\n The new Rush mode is a fast and often high-scoring spectacle.\n",
+            "NBA 2K25": "\n NBA 2K25 has been praised for its improved gameplay and\n realistic player movements, making it one of the best entries in the series.\n",
+            "Forza Horizon 5": "\n Forza Horizon 5 is widely praised as the best entry in the series.\n",
+            "Forza Motorsport": "\n Forza Motorsport has been praised for its improved\n handling and realistic driving experience.\n",
+            "WWE 2K24": "\n WWE 2K24 has been praised for its improved gameplay mechanics,\n better visuals, and a variety of match types.\n",
+            "Civilization VI": "\n Civilization VI is a turn-based strategy game that allows\n players to build and expand their empires throughout history.\n",
+            "DOTA 2": "\n This is a dizzyingly deep competitive team strategy game whose\n core design benefits from fifteen years of unbroken refinement.\n",
+            "Stellaris": "\n Stellaris is a grand strategy game that starts strong with\n engaging exploration and empire-building but struggles in the mid-game\n",
+            "Yu Gi Oh Master Duel": "\n It's complicated, but hasn't lost the basic\n appeal of any card game: the agony and ecstasy at the intersection of skill and luck.\n",
+            "Age of Empires IV": "\n Age of Empires IV has received mixed reviews,\n with some praising its nostalgic gameplay and stunning visuals, while others\n criticize it for lacking depth and innovation\n",
             }
     # I limited the graph to 5 titles in 5 genres to keep it from getting too large
     graph = Graph()
@@ -34,6 +44,11 @@ def load_data():
         graph.add_vertex(genre_vertex)
         for game_name, rating in games:
             game_vertex = Vertex(game_name, rating)
+            game_vertex.blurb = blurb.get(game_name, "No blurb available")
             graph.add_vertex(game_vertex)
             graph.add_edge(genre_vertex, game_vertex)
     return graph
+
+def get_blurb(graph, game_name):
+    vertex = graph.get_vertex(game_name)
+    return vertex.blurb if vertex else "Game not found"

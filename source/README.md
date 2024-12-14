@@ -14,3 +14,14 @@ To keep things simple, while the ratings are sourced from MetaCritic, they are u
 
 user scores are on a 10 scale and I wanted to keep things simple. This is simply a concept project.
 
+
+12-13-24
+
+The app is now feature complete. Aside from aesthetic improvements, it does what I wanted it to.
+
+This is just a concept project, so I kept the dataset small. The graph holds 5 genres, with 5 titles each.
+
+The dict that holds the blurbs contains short blurbs for each of the 25 titles. I put my best effor in with 
+controlling the format of the returned print statements.
+
+I plan to apply some of this to an upcoming personal portfolio project I am thinking up currently. 

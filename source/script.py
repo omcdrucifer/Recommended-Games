@@ -1,5 +1,5 @@
 # main script to handle interactions 
-from data import load_data
+from data import load_data, get_blurb
 from graph import Graph, Vertex # at this stage I don't know if script.py needs graph interaction itself
 from prints import welcome, greeting, line_break, double_line_break, goodbye_message
 
@@ -30,7 +30,16 @@ def main():
             print(f"\n{n}. {game.value} with rating {game.rating}\n")
             n += 1
         print(line_break())
-        choose = input("  Would you like to look for more recommendations? <yes/no>: ").strip().lower()
+        game_choice = input("\n Enter the number next to a title for more information, or 'skip' to continue: ").strip().lower()
+        if game_choice.isdigit():
+            game_index = int(game_choice) - 1
+            if 0 <= game_index < len(recommendations):
+                selected_game = recommendations[game_index].value
+                blurb = get_blurb(graph, selected_game)
+                print(f"\n Blurb for {selected_game}: {blurb}\n")
+            else:
+                print("\n  Invalid choice. Please try again\n")
+        choose = input("\n  Would you like to look for more recommendations? <yes/no>: ").strip().lower()
         if choose != "yes":
             print(goodbye_message())
             break

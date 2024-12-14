@@ -16,3 +16,10 @@ I decided to separate the portfolio projects rather than dump them all into one 
 I now have a base line for all files except the print statements. Once I get a template for those I will flesh everything out.
 
 I will likely incorporate logging as I did in the previous project as well. 
+
+12-13-24
+
+At this point the app is feature complete. It is just a small proof of concept that may contribute toward a larger
+personal portfolio project I am still conceptualizing.
+
+I will be putting it to PyPI as well. 

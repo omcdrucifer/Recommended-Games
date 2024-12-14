@@ -23,6 +23,9 @@ class Graph:
         if not self.directed:
             self.graph_dict[to_vertex.value].add_edge(from_vertex.value, weight)
 
+    def get_vertex(self, value):
+        return self.graph_dict.get(value)
+
     def bfs(self, start_vertex_name):
         if start_vertex_name not in self.graph_dict:
             return []
