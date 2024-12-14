@@ -18,9 +18,9 @@ def recommend_games(graph, genre):
     sorted_games = sorted(game_vertices, key=lambda x: x.rating, reverse=True)
     return sorted_games
 
-def main():
-    while True:
-        graph = load_data()
+    def main():
+        while True:
+            graph = load_data()
         genre = get_user_preferences()
         recommendations = recommend_games(graph, genre)
         print(line_break())
@@ -44,5 +44,5 @@ def main():
             print(goodbye_message())
             break
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
